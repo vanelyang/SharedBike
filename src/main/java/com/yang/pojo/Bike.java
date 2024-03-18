@@ -8,32 +8,32 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.lang.reflect.Type;
 import java.util.Date;
 
 /**
  * @Author Yang
- * @Date 2024/3/17 19:50
+ * @Date 2024/3/18 9:06
  */
+
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class Student {
-    @TableId(value = "id",type = IdType.AUTO)
+@AllArgsConstructor
+public class Bike {
+
+    @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    @TableField(value = "stu_num")
-    private String stuNum;
+    private String number;
 
-    private String stuName;
+    @TableField(value = "is_free")
+    private boolean free;
 
-    private String idcard;
-
-    private String phone;
+    private Long locationId;
 
     @TableField(fill = FieldFill.INSERT)
     private Date createTime;
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
-
 }

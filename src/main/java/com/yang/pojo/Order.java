@@ -1,7 +1,6 @@
 package com.yang.pojo;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
@@ -12,28 +11,38 @@ import java.util.Date;
 
 /**
  * @Author Yang
- * @Date 2024/3/17 19:50
+ * @Date 2024/3/18 9:26
  */
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class Student {
-    @TableId(value = "id",type = IdType.AUTO)
+@AllArgsConstructor
+public class Order {
+
+    @TableId(value = "id")
     private Long id;
 
-    @TableField(value = "stu_num")
-    private String stuNum;
+    private Long stuId;
 
-    private String stuName;
+    private Long bikeId;
 
-    private String idcard;
+    private Date orderTime;
 
-    private String phone;
+    private Date boardingTime;
+
+    private Long boardingLocationId;
+
+    private Date offTime;
+
+    private Long offLocationId;
+
+    @TableField(value = "is_finish")
+    private boolean finish;
 
     @TableField(fill = FieldFill.INSERT)
     private Date createTime;
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
+
 
 }
