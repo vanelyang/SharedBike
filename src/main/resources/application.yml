@@ -8,4 +8,9 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/sharedbike?useSSL=false&serverTimezone=UTC
     username: root
     password: 123456
-
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      table-prefix: tb_

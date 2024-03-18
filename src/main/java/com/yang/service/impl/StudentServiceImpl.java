@@ -5,7 +5,10 @@ import com.yang.mapper.StudentMapper;
 import com.yang.pojo.Student;
 import com.yang.service.StudentService;
 import com.yang.util.Result;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @Author Yang
@@ -13,9 +16,23 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class StudentServiceImpl extends ServiceImpl<StudentMapper, Student> implements StudentService {
+
     @Override
     public Result addOneStudent(Student student) {
-        System.out.println("hello");
+
+        boolean save = save(student);
+        if (!save) {
+            return Result.fail();
+        }
+        return Result.ok();
+    }
+
+    @Override
+    public Result addStudents(List<Student> studentList) {
+        boolean b = saveBatch(studentList);
+        if (!b) {
+            return Result.fail();
+        }
         return Result.ok();
     }
 }
