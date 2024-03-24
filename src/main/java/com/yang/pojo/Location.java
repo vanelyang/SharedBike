@@ -35,7 +35,7 @@ public class Location {
     private Date createTime;
 
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    private Date update_Time;
+    private Date updateTime;
 
 
 

@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yang.mapper.LocationMapper;
 import com.yang.pojo.Location;
 import com.yang.service.LocationService;
+import com.yang.util.Result;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @Author Yang
@@ -13,4 +16,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class LocationServiceImpl extends ServiceImpl<LocationMapper, Location> implements LocationService {
+
+    @Override
+    public Result addLocation(List<Location> locationList) {
+
+        boolean b = saveBatch(locationList);
+        if (!b){
+            return Result.fail();
+        }
+
+        return Result.ok();
+    }
 }

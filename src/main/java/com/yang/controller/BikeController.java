@@ -1,8 +1,12 @@
 package com.yang.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import com.yang.pojo.Bike;
+import com.yang.service.BikeService;
+import com.yang.util.Result;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @Author Yang
@@ -11,4 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/bikes")
 public class BikeController {
+
+    @Autowired
+    private BikeService bikeService;
+
+    @PostMapping("/addBikes")
+    public Result addBikes(@RequestBody List<Bike> bikeList){
+        return bikeService.addBikes(bikeList);
+    }
+
 }
